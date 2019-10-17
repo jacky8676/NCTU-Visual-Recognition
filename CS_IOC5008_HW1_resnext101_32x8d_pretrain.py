@@ -143,10 +143,3 @@ for i in range(1040):
     predict_df.loc[i,'label'] = category[prediction]
 
 predict_df.to_csv('predict_resnext101_32x8d_pretrain_201_5_5_random(0.3).csv', index = False)
-
-
-# In[ ]:
-
-
-
-
