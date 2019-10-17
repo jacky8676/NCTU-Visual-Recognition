@@ -67,17 +67,14 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(net.parameters(), lr=FIRST_LEARNING_RATE, momentum=MOMENTUM)
 
 
-for epoch in range(FIRST_EPOCH):  # loop over the dataset multiple times
+for epoch in range(FIRST_EPOCH):
 
     running_loss = 0.0
     for i, data in enumerate(data_loader, 0):
-        # get the inputs; data is a list of [inputs, labels]
+      
         inputs, labels = data
-        
-        # zero the parameter gradients
         optimizer.zero_grad()
 
-        # forward + backward + optimize
         outputs = net(inputs.cuda())
         loss = criterion(outputs, labels.cuda())
         loss.backward()
@@ -94,17 +91,14 @@ for epoch in range(FIRST_EPOCH):  # loop over the dataset multiple times
 optimizer = optim.SGD(net.parameters(), lr=SECOND_LEARNING_RATE, momentum=MOMENTUM)
 
 
-for epoch in range(SECOND_EPOCH):  # loop over the dataset multiple times
+for epoch in range(SECOND_EPOCH):  
 
     running_loss = 0.0
     for i, data in enumerate(data_loader, 0):
-        # get the inputs; data is a list of [inputs, labels]
-        inputs, labels = data
         
-        # zero the parameter gradients
+        inputs, labels = data
         optimizer.zero_grad()
 
-        # forward + backward + optimize
         outputs = net(inputs.cuda())
         loss = criterion(outputs, labels.cuda())
         loss.backward()
